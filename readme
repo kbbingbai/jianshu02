@@ -1,0 +1,19 @@
+一： pipeline的一些使用
+    1 open_spider和close_spider 的使用
+        作为一个下载中间件，可以在__init__的方法中做一些初始化的操作，
+        也可以在open_spider中进行一些初始化操作，它是在爬虫开始时执行的方法，且执行一次
+        可以在close_spider中执行一些关闭的操作，它是在爬虫结时执行的方法，且执行一次
+
+    2 在进行数据数据库连接的时候
+            可以这样做：
+                self.mysqlConn = connect(host="",port="")
+            也可以这样做
+                self.mysqlConn = connect(**self.dbParams)
+
+    3 保存到数据库的异步操作，from twisted.enterprise import adbapi
+        （1） pool的建立
+        （2） defer.addErrback 添加错误处理方法
+
+二：下载中间件
+    1 scrapy结合selenuim，利用下载中间件的方法进行实现
+    2 process_response与process_request的使用
